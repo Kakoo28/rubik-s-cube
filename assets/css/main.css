@@ -16,6 +16,7 @@ body {
     transform: translate(-50%, -50%);
     display: grid;
     grid-template-columns: repeat(3, 1fr);
+    gap: 5px;
 }
 
 .face {
@@ -46,8 +47,7 @@ body {
     border: 1px solid black;
 }
 
-
-#temp-btn {
+#btn-container {
     position: absolute;
     display: flex;
     flex-direction: column;
@@ -55,16 +55,16 @@ body {
     top: 30%;
     left: 20%;
 }
-#temp-btn div {
+#btn-container div {
     display: flex;
     flex-direction: column;
     gap: 5px;
 }
-#temp-btn button {
+#btn-container button {
     cursor: pointer;
 }
 
-#temp-btn div:last-of-type * {
+#btn-container div:last-of-type * {
     font-size: 1.1rem;
     color: #af0909;
 }

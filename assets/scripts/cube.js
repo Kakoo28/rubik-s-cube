@@ -35,10 +35,36 @@ class Cube {
 
         switch (face) {
             case "w":
-                if (reverse) {
+                if (!reverse) {
+                    // white
+                    copyState.w[0] = this.state.w[5];
+                    copyState.w[2] = this.state.w[0];
+                    copyState.w[5] = this.state.w[7];
+                    copyState.w[7] = this.state.w[2];
+                    copyState.w[1] = this.state.w[3];
+                    copyState.w[3] = this.state.w[6];
+                    copyState.w[4] = this.state.w[1];
+                    copyState.w[6] = this.state.w[4];
+
+                    copyState.r[0] = this.state.b[0];
+                    copyState.r[1] = this.state.b[1];
+                    copyState.r[2] = this.state.b[2];
+
+                    copyState.b[0] = this.state.o[0];
+                    copyState.b[1] = this.state.o[1];
+                    copyState.b[2] = this.state.o[2];
+
+                    copyState.o[0] = this.state.g[0];
+                    copyState.o[1] = this.state.g[1];
+                    copyState.o[2] = this.state.g[2];
+
+                    copyState.g[0] = this.state.r[0];
+                    copyState.g[1] = this.state.r[1];
+                    copyState.g[2] = this.state.r[2];
+                } else {
                     // reversed white
                     copyState.w[0] = this.state.w[2];
-                    copyState.w[2] = this.state.w[0];
+                    copyState.w[2] = this.state.w[7];
                     copyState.w[5] = this.state.w[0];
                     copyState.w[7] = this.state.w[5];
                     copyState.w[1] = this.state.w[4];
@@ -61,67 +87,93 @@ class Cube {
                     copyState.g[0] = this.state.o[0];
                     copyState.g[1] = this.state.o[1];
                     copyState.g[2] = this.state.o[2];
-                } else {
-                    copyState.w[0] = this.state.w[5];
-                    copyState.w[2] = this.state.w[0];
-                    copyState.w[5] = this.state.w[7];
-                    copyState.w[7] = this.state.w[2];
-
-                    copyState.w[1] = this.state.w[3];
-                    copyState.w[3] = this.state.w[6];
-                    copyState.w[4] = this.state.w[1];
-                    copyState.w[6] = this.state.w[4];
-
-                    copyState.r[0] = this.state.b[0];
-                    copyState.r[1] = this.state.b[1];
-                    copyState.r[2] = this.state.b[2];
-
-                    copyState.b[0] = this.state.o[0];
-                    copyState.b[1] = this.state.o[1];
-                    copyState.b[2] = this.state.o[2];
-
-                    copyState.o[0] = this.state.g[0];
-                    copyState.o[1] = this.state.g[1];
-                    copyState.o[2] = this.state.g[2];
-
-                    copyState.g[0] = this.state.r[0];
-                    copyState.g[1] = this.state.r[1];
-                    copyState.g[2] = this.state.r[2];
                 }
                 break;
             case "r":
-                if (reverse) {
-                    console.log("R reversed");
+                if (!reverse) {
+                    // red
+                    copyState.r[0] = this.state.r[5];
+                    copyState.r[2] = this.state.r[0];
+                    copyState.r[5] = this.state.r[7];
+                    copyState.r[7] = this.state.r[2];
+                    copyState.r[1] = this.state.r[3];
+                    copyState.r[3] = this.state.r[6];
+                    copyState.r[4] = this.state.r[1];
+                    copyState.r[6] = this.state.r[4];
+
+                    copyState.y[0] = this.state.b[0];
+                    copyState.y[1] = this.state.b[3];
+                    copyState.y[2] = this.state.b[5];
+
+                    copyState.b[0] = this.state.w[7];
+                    copyState.b[3] = this.state.w[6];
+                    copyState.b[5] = this.state.w[5];
+
+                    copyState.w[7] = this.state.g[2];
+                    copyState.w[6] = this.state.g[4];
+                    copyState.w[5] = this.state.g[7];
+
+                    copyState.g[2] = this.state.y[0];
+                    copyState.g[4] = this.state.y[1];
+                    copyState.g[7] = this.state.y[2];
                 } else {
-                    console.log("R");
+                    // red reverse
+                    copyState.r[0] = this.state.r[2];
+                    copyState.r[2] = this.state.r[7];
+                    copyState.r[5] = this.state.r[0];
+                    copyState.r[7] = this.state.r[5];
+                    copyState.r[1] = this.state.r[4];
+                    copyState.r[3] = this.state.r[1];
+                    copyState.r[4] = this.state.r[6];
+                    copyState.r[6] = this.state.r[3];
+
+                    copyState.y[0] = this.state.g[2];
+                    copyState.y[1] = this.state.g[4];
+                    copyState.y[2] = this.state.g[7];
+
+                    copyState.b[0] = this.state.y[0];
+                    copyState.b[3] = this.state.y[1];
+                    copyState.b[5] = this.state.y[2];
+
+                    copyState.w[7] = this.state.b[0];
+                    copyState.w[6] = this.state.b[3];
+                    copyState.w[5] = this.state.b[5];
+
+                    copyState.g[2] = this.state.w[7];
+                    copyState.g[4] = this.state.w[6];
+                    copyState.g[7] = this.state.w[5];
                 }
                 break;
             case "o":
-                if (reverse) {
-                    console.log("O reversed");
+                if (!reverse) {
+
+
                 } else {
-                    console.log("O");
+
                 }
                 break;
             case "b":
-                if (reverse) {
-                    console.log("B reversed");
+                if (!reverse) {
+
+
                 } else {
-                    console.log("B");
+
                 }
                 break;
             case "g":
-                if (reverse) {
-                    console.log("G reversed");
+                if (!reverse) {
+
+
                 } else {
-                    console.log("G");
+
                 }
                 break;
             case "y":
-                if (reverse) {
-                    console.log("Y reversed");
+                if (!reverse) {
+
+
                 } else {
-                    console.log("Y");
+
                 }
                 break;
             default:
