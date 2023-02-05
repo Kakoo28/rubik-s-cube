@@ -32,12 +32,39 @@ body {
 
 #g {
     grid-column: 1/3;
+    transform: rotate(90deg)
 }
-
+#o {
+    transform: rotate(180deg);
+}
 #b {
     grid-column: 3/3;
+    transform: rotate(-90deg);
 }
 
 .cube {
     border: 1px solid black;
+}
+
+
+#temp-btn {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    top: 30%;
+    left: 20%;
+}
+#temp-btn div {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+#temp-btn button {
+    cursor: pointer;
+}
+
+#temp-btn div:last-of-type * {
+    font-size: 1.1rem;
+    color: #af0909;
 }
