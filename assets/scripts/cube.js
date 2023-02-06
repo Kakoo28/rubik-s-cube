@@ -28,6 +28,7 @@ class Cube {
     }
 
     rotate(face, reverse) {
+        document.getElementById('history').innerText += (reverse ? face.toUpperCase() : face) + ', ';
         // REMOVE THE LINK WITH COPY STATE AND THIS.STATE
         let copyState = JSON.stringify(this.state);
         copyState = JSON.parse(copyState);
@@ -101,13 +102,13 @@ class Cube {
                     copyState.r[4] = this.state.r[1];
                     copyState.r[6] = this.state.r[4];
 
-                    copyState.y[0] = this.state.b[0];
+                    copyState.y[0] = this.state.b[5];
                     copyState.y[1] = this.state.b[3];
-                    copyState.y[2] = this.state.b[5];
+                    copyState.y[2] = this.state.b[0];
 
-                    copyState.b[0] = this.state.w[7];
+                    copyState.b[0] = this.state.w[5];
                     copyState.b[3] = this.state.w[6];
-                    copyState.b[5] = this.state.w[5];
+                    copyState.b[5] = this.state.w[7];
 
                     copyState.w[7] = this.state.g[2];
                     copyState.w[6] = this.state.g[4];
@@ -131,13 +132,13 @@ class Cube {
                     copyState.y[1] = this.state.g[4];
                     copyState.y[2] = this.state.g[7];
 
-                    copyState.b[0] = this.state.y[0];
-                    copyState.b[3] = this.state.y[1];
-                    copyState.b[5] = this.state.y[2];
+                    copyState.b[0] = this.state.y[2];
+                     copyState.b[3] = this.state.y[1];
+                    copyState.b[5] = this.state.y[0];
 
-                    copyState.w[7] = this.state.b[0];
+                    copyState.w[7] = this.state.b[5];
                     copyState.w[6] = this.state.b[3];
-                    copyState.w[5] = this.state.b[5];
+                    copyState.w[5] = this.state.b[0];
 
                     copyState.g[2] = this.state.w[7];
                     copyState.g[4] = this.state.w[6];
