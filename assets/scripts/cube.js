@@ -253,6 +253,7 @@ class Cube {
                 return false;
         }
         this.state = copyState;
+        // username change
         this.displayCube();
     }
 }
