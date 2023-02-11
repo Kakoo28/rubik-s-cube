@@ -253,6 +253,7 @@ class Cube {
                 return false;
         }
         this.state = copyState;
+        // test add comment
         this.displayCube();
     }
 }
