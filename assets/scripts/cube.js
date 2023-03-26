@@ -9,6 +9,7 @@ class Cube {
             y: ["y", "y", "y", "y", "y", "y", "y", "y"]
         }
         this.defaultState = this.state;
+        this.COLORS_LETTER = ["w", "r", "b", "o", "g", "y"];
         for (const face in this.state) {
             document.querySelector(`#${face} .center`).style.backgroundColor = COLORS[face];
         }
@@ -28,11 +29,14 @@ class Cube {
     }
 
     rotate(face, reverse) {
-        document.getElementById('history').innerText += (reverse ? face.toUpperCase() : face) + ', ';
+
+        if (!this.COLORS_LETTER.includes(face)) return false;
+
+        document.getElementById('history').innerText += (reverse ? face.toUpperCase() : face) + ', '; // TEMP
+
         // REMOVE THE LINK WITH COPY STATE AND THIS.STATE
         let copyState = JSON.stringify(this.state);
         copyState = JSON.parse(copyState);
-        // methode plus simple?
 
         switch (face) {
             case "w":
@@ -156,14 +160,6 @@ class Cube {
                     copyState.o[3] = this.state.o[6];
                     copyState.o[4] = this.state.o[1];
                     copyState.o[6] = this.state.o[4];
-
-                    copyState.w[0] = this.state.b[2];
-                    copyState.w[1] = this.state.b[4];
-                    copyState.w[2] = this.state.b[7];
-
-                    copyState.b[2] = this.state.y[7];
-                    copyState.b[4] = this.state.y[6];
-                    copyState.b[7] = this.state.y[5];
 
                 } else {
                     //orange reverse

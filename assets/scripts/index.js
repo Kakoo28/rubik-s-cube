@@ -6,7 +6,8 @@ const COLORS = {
     g: "green",
     y: "yellow"
 };
-const COLORS_LETTER = ["w", "r", "b", "o", "g", "y"];
+console.log(Object.keys(COLORS));
+
 const cube = new Cube();
 
 
@@ -25,7 +26,5 @@ RESET.addEventListener("click", () => cube.reset());
 
 // add key down listener
 window.addEventListener("keydown", (e) => {
-    if (COLORS_LETTER.includes(e.key.toLowerCase())) {
-        cube.rotate(e.key.toLowerCase(), e.shiftKey);
-    }
+    console.log(cube.rotate(e.key.toLowerCase(), e.shiftKey));
 });
