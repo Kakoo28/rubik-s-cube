@@ -1,15 +1,15 @@
 class Cube {
-    constructor() {
+    constructor(COLORS) {
         this.state = {
             w: ["w", "w", "w", "w", "w", "w", "w", "w"],
+            g: ["g", "g", "g", "g", "g", "g", "g", "g"],
             r: ["r", "r", "r", "r", "r", "r", "r", "r"],
             b: ["b", "b", "b", "b", "b", "b", "b", "b"],
             o: ["o", "o", "o", "o", "o", "o", "o", "o"],
-            g: ["g", "g", "g", "g", "g", "g", "g", "g"],
             y: ["y", "y", "y", "y", "y", "y", "y", "y"]
         }
         this.defaultState = this.state;
-        this.COLORS_LETTER = ["w", "r", "b", "o", "g", "y"];
+        this.COLORS_LETTER = Object.keys(COLORS);
         for (const face in this.state) {
             document.querySelector(`#${face} .center`).style.backgroundColor = COLORS[face];
         }
@@ -19,6 +19,7 @@ class Cube {
         for (const face in this.state) {
             for (let i = 0; i < this.state[face].length; i++) {
                 [...document.getElementById(face).getElementsByClassName(i)][0].style.backgroundColor = COLORS[this.state[face][i]];
+                [...document.getElementById(face).getElementsByClassName(i)][0].innerHTML = i;
             }
         }
     }
@@ -106,21 +107,21 @@ class Cube {
                     copyState.r[4] = this.state.r[1];
                     copyState.r[6] = this.state.r[4];
 
-                    copyState.y[0] = this.state.b[5];
-                    copyState.y[1] = this.state.b[3];
-                    copyState.y[2] = this.state.b[0];
+                    copyState.w[2] = this.state.g[2];
+                    copyState.w[4] = this.state.g[4];
+                    copyState.w[7] = this.state.g[7];
 
-                    copyState.b[0] = this.state.w[5];
-                    copyState.b[3] = this.state.w[6];
-                    copyState.b[5] = this.state.w[7];
+                    copyState.g[2] = this.state.y[2];
+                    copyState.g[4] = this.state.y[4];
+                    copyState.g[7] = this.state.y[7];
 
-                    copyState.w[7] = this.state.g[2];
-                    copyState.w[6] = this.state.g[4];
-                    copyState.w[5] = this.state.g[7];
+                    copyState.y[2] = this.state.b[5];
+                    copyState.y[4] = this.state.b[3];
+                    copyState.y[7] = this.state.b[0];
 
-                    copyState.g[2] = this.state.y[0];
-                    copyState.g[4] = this.state.y[1];
-                    copyState.g[7] = this.state.y[2];
+                    copyState.b[5] = this.state.w[2];
+                    copyState.b[3] = this.state.w[4];
+                    copyState.b[0] = this.state.w[7];
                 } else {
                     // red reverse
                     copyState.r[0] = this.state.r[2];
@@ -132,21 +133,21 @@ class Cube {
                     copyState.r[4] = this.state.r[6];
                     copyState.r[6] = this.state.r[3];
 
-                    copyState.y[0] = this.state.g[2];
-                    copyState.y[1] = this.state.g[4];
-                    copyState.y[2] = this.state.g[7];
+                    copyState.g[2] = this.state.w[2];
+                    copyState.g[4] = this.state.w[4];
+                    copyState.g[7] = this.state.w[7];
 
-                    copyState.b[0] = this.state.y[2];
-                     copyState.b[3] = this.state.y[1];
-                    copyState.b[5] = this.state.y[0];
+                    copyState.y[2] = this.state.g[2];
+                    copyState.y[4] = this.state.g[4];
+                    copyState.y[7] = this.state.g[7];
 
-                    copyState.w[7] = this.state.b[5];
-                    copyState.w[6] = this.state.b[3];
-                    copyState.w[5] = this.state.b[0];
+                    copyState.b[5] = this.state.y[2];
+                    copyState.b[3] = this.state.y[4];
+                    copyState.b[0] = this.state.y[7];
 
-                    copyState.g[2] = this.state.w[7];
-                    copyState.g[4] = this.state.w[6];
-                    copyState.g[7] = this.state.w[5];
+                    copyState.w[2] = this.state.b[5];
+                    copyState.w[4] = this.state.b[3];
+                    copyState.w[7] = this.state.b[0];
                 }
                 break;
             case "o":

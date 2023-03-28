@@ -6,10 +6,8 @@ const COLORS = {
     g: "green",
     y: "yellow"
 };
-console.log(Object.keys(COLORS));
 
-const cube = new Cube();
-
+const cube = new Cube(COLORS);
 
 cube.displayCube();
 
