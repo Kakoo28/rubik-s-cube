@@ -56,6 +56,6 @@ body {
 
 @media screen and (max-width: 860px) {
     #cube {
-        width: 100%;
+        width: 430px;
     }
 }
