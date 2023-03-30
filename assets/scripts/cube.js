@@ -33,7 +33,7 @@ class Cube {
 
     scramble() {
         this.reset();
-        let rotateCount = Math.round(10 + Math.random() * (20 - 10));
+        let rotateCount = Math.round(20 + Math.random() * (30 - 10));
 
         for (let i = 0; i < rotateCount; i++) {
             this.rotate([...Object.keys(this.state)][Math.round(Math.random() * 5.99)], Math.random() >= 0.50);
