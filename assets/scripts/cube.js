@@ -16,22 +16,31 @@ class Cube {
         }
     }
 
-    displayCube() {
+
+    displayCube() { // DISPLAY FUNCTION
         for (const face in this.state) {
             for (let i = 0; i < this.state[face].length; i++) {
                 [...document.getElementById(face).getElementsByClassName(i)][0].style.backgroundColor = COLORS[this.state[face][i]];
-                [...document.getElementById(face).getElementsByClassName(i)][0].innerHTML = i;
             }
         }
     }
 
-    reset() {
+    reset() { // RESET
         this.state = this.defaultState;
         this.displayCube();
         document.getElementById('history').innerText = "";
     }
 
-    rotate(face, reverse) {
+    scramble() {
+        this.reset();
+        let rotateCount = Math.round(10 + Math.random() * (20 - 10));
+
+        for (let i = 0; i < rotateCount; i++) {
+            this.rotate([...Object.keys(this.state)][Math.round(Math.random() * 5.99)], Math.random() >= 0.50);
+        }
+    }
+
+    rotate(face, reverse) { // ROTATE FUNCTION
 
         if (!this.COLORS_LETTER.includes(face)) return false;
 
